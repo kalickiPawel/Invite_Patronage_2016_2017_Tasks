@@ -34,6 +34,8 @@ class Zwierz
 
 }
 
+//sprawdzam dzialanie programu:
+
 let dog = Zwierz(nazwa: "Azor", gatunek: "Pies", zdjecie: "nie posiada zdjecia", wiek: 6)
 let cat = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: "posiada zdjecie", wiek: 10)
 
