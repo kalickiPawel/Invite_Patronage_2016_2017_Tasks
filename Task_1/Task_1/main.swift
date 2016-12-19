@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Swift
 
-class Zwierz
+class Zwierz: CustomStringConvertible
 {
+
     //Pola
     var Nazwa: String
     var Gatunek: String
@@ -31,7 +33,10 @@ class Zwierz
         Zdjecie = zdjecie
         Wiek = wiek
     }
-
+}
+protocol CustomStringConvertible
+{
+    func description()
 }
 
 //sprawdzam dzialanie programu:
