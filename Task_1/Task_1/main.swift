@@ -21,7 +21,19 @@ class Zwierz: CustomStringConvertible
     //Metoda description
     func description()
     {
-        print("\(Gatunek) - \(Nazwa) ma: \(Wiek) lat oraz \(Zdjecie)")
+        if(Zdjecie=="posiada")
+        {
+            print("\(Gatunek) - \(Nazwa) ma \(Wiek) lat oraz posiada zdjecie")
+        }
+        else if(Zdjecie=="nie posiada")
+        {
+            print("\(Gatunek) - \(Nazwa) ma \(Wiek) lat oraz nie posiada zdjecia")
+        }
+        else
+        {
+            print("\(Gatunek) - \(Nazwa) ma \(Wiek) lat oraz nie wiadomo co ze zdjeciem")
+        }
+        
     }
     
     //Metoda do inicjalizacji
@@ -41,8 +53,8 @@ protocol CustomStringConvertible
 
 //sprawdzam dzialanie programu:
 
-let dog = Zwierz(nazwa: "Azor", gatunek: "Pies", zdjecie: "nie posiada zdjecia", wiek: 6)
-let cat = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: "posiada zdjecie", wiek: 10)
+let dog = Zwierz(nazwa: "Azor", gatunek: "Pies", zdjecie: "nie posiada", wiek: 6)
+let cat = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: "posiada", wiek: 10)
 
 dog.description()
 cat.description()
