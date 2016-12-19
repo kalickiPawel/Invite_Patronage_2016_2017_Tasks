@@ -8,5 +8,34 @@
 
 import Foundation
 
-print("Hello, World!")
+class Zwierz
+{
+    //Pola
+    var Nazwa: String
+    var Gatunek: String
+    var Zdjecie: String
+    var Wiek: Int
+    
+    //Metoda description
+    
+    func description()
+    {
+        print("\(Gatunek) - \(Nazwa) ma: \(Wiek) lat oraz \(Zdjecie)")
+    }
+    
+    //Metoda do inicjalizacji
+    init(nazwa:String, gatunek:String, zdjecie: String, wiek: Int)
+    {
+        Nazwa = nazwa
+        Gatunek = gatunek
+        Zdjecie = zdjecie
+        Wiek = wiek
+    }
 
+}
+
+let dog = Zwierz(nazwa: "Azor", gatunek: "Pies", zdjecie: "nie posiada zdjecia", wiek: 6)
+let cat = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: "posiada zdjecie", wiek: 10)
+
+dog.description()
+cat.description()
