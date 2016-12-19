@@ -19,7 +19,6 @@ class Zwierz: CustomStringConvertible
     var Wiek: Int
     
     //Metoda description
-    
     func description()
     {
         print("\(Gatunek) - \(Nazwa) ma: \(Wiek) lat oraz \(Zdjecie)")
@@ -34,6 +33,7 @@ class Zwierz: CustomStringConvertible
         Wiek = wiek
     }
 }
+//opcjonalny protokol
 protocol CustomStringConvertible
 {
     func description()
