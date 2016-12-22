@@ -44,9 +44,6 @@ enum Gatunek: String
 {
     case kot = "Kot"
     case pies = "Pies"
-    case królik = "Królik"
-    case ryba = "Ryba"
-    case chomik = "Chomik"
 }
 
 //sprawdzam dzialanie programu
