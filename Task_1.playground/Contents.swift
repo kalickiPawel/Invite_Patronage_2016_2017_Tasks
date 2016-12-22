@@ -10,15 +10,6 @@ class Zwierz: CustomStringConvertible
     var wiek: Int
     var gatunek: Gatunek
     
-    enum Gatunek: String
-    {
-        case cat = "Kot"
-        case dog = "Pies"
-        case rabbit = "Królik"
-        case fish = "Ryba"
-        case hamster = "Chomik"
-    }
-    
     //Metoda do inicjalizacji
     init(nazwa:String, gatunek:String, zdjecie: UIImage?, wiek: Int)
     {
@@ -41,3 +32,20 @@ class Zwierz: CustomStringConvertible
         }
     }
 }
+
+enum Gatunek: String
+{
+    case kot = "Kot"
+    case pies = "Pies"
+    case królik = "Królik"
+    case ryba = "Ryba"
+    case chomik = "Chomik"
+}
+
+//sprawdzam dzialanie programu
+
+let pies = Zwierz(nazwa: "Bolek", gatunek: "Pies", zdjecie: nil, wiek: 10)
+let kot = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: nil, wiek: 6)
+
+pies.description
+kot.description
