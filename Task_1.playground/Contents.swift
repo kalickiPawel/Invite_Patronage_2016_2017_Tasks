@@ -33,6 +33,7 @@ class Zwierz: CustomStringConvertible
     }
 }
 
+//Typ wyliczeniowy ogranicza ilość wartości
 enum Gatunek: String
 {
     case kot = "Kot"
@@ -44,8 +45,8 @@ enum Gatunek: String
 
 //sprawdzam dzialanie programu
 
-let pies = Zwierz(nazwa: "Bolek", gatunek: "Pies", zdjecie: nil, wiek: 10)
-let kot = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: nil, wiek: 6)
+var pies = Zwierz(nazwa: "Bolek", gatunek: "Pies", zdjecie: nil, wiek: 10)
+var kot = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: nil, wiek: 6)
 
-pies.description
-kot.description
+pies.description()
+kot.description()
