@@ -11,7 +11,7 @@ class Zwierz: CustomStringConvertible
     var wiek: Int
     
     //Metoda do inicjalizacji
-    init(nazwa:String, gatunek:String, zdjecie: UIImage, wiek: Int)
+    init(nazwa:String, gatunek:String, zdjecie: UIImage?, wiek: Int)
     {
         self.nazwa = nazwa
         self.gatunek = gatunek
