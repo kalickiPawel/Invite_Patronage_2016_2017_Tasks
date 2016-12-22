@@ -8,53 +8,40 @@
 
 import Foundation
 import Swift
+import UIKit
 
 class Zwierz: CustomStringConvertible
 {
-
     //Pola
-    var Nazwa: String
-    var Gatunek: String
-    var Zdjecie: String
-    var Wiek: Int
-    
-    //Metoda description
-    func description()
-    {
-        if(Zdjecie=="posiada")
-        {
-            print("\(Gatunek) - \(Nazwa) ma \(Wiek) lat oraz posiada zdjecie")
-        }
-        else if(Zdjecie=="nie posiada")
-        {
-            print("\(Gatunek) - \(Nazwa) ma \(Wiek) lat oraz nie posiada zdjecia")
-        }
-        else
-        {
-            print("\(Gatunek) - \(Nazwa) ma \(Wiek) lat oraz nie wiadomo co ze zdjeciem")
-        }
-        
-    }
+    var nazwa: String
+    var gatunek: String
+    var zdjecie: UIImage
+    var wiek: Int
     
     //Metoda do inicjalizacji
-    init(nazwa:String, gatunek:String, zdjecie: String, wiek: Int)
+    init(nazwa:String, gatunek:String, zdjecie: UIImage, wiek: Int)
     {
-        Nazwa = nazwa
-        Gatunek = gatunek
-        Zdjecie = zdjecie
-        Wiek = wiek
+        self.nazwa = nazwa
+        self.gatunek = gatunek
+        self.zdjecie = zdjecie
+        self.wiek = wiek
+    }
+    
+    //Metoda description
+    var description: String
+    {
+        if(zdjecie == NULL)
+            return "(\(nazwa) -  \(gatunek) - \(wiek) - posiada zdjęcie)"
+        else if ( zdjecie == ?)
+            return "(\(nazwa) -  \(gatunek) - \(wiek) - nie posiada zdjęcia)"
+        else
+            return "(\(nazwa) -  \(gatunek) - \(wiek))"
     }
 }
-//opcjonalny protokol
-protocol CustomStringConvertible
-{
-    func description()
-}
-
 //sprawdzam dzialanie programu:
 
-let dog = Zwierz(nazwa: "Azor", gatunek: "Pies", zdjecie: "nie posiada", wiek: 6)
-let cat = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: "posiada", wiek: 10)
+let dog = Zwierz(nazwa: "Azor", gatunek: "Pies", zdjecie: NULL, wiek: 6)
+let cat = Zwierz(nazwa: "Fenek", gatunek: "Kot", zdjecie: NULL, wiek: 10)
 
 dog.description()
 cat.description()
