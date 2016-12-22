@@ -10,19 +10,20 @@ class Zwierz: CustomStringConvertible
     var wiek: Int
     var gatunek: Gatunek
     
-    enum Gatunek
+    enum Gatunek: String
     {
-        case kot
-        case pies
-        case krolik
-        case rybka
-        case chomik
+        case cat = "Kot"
+        case dog = "Pies"
+        case rabbit = "Królik"
+        case fish = "Ryba"
+        case hamster = "Chomik"
     }
     
     //Metoda do inicjalizacji
     init(nazwa:String, gatunek:String, zdjecie: UIImage?, wiek: Int)
     {
         self.nazwa = nazwa
+        self.gatunek = Gatunek(rawValue: gatunek)!
         self.zdjecie = zdjecie
         self.wiek = wiek
     }
