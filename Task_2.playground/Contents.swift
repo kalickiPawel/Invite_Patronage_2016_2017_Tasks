@@ -38,7 +38,15 @@ class Zwierz: CustomStringConvertible
             return opis + "Nie posiada zdjęcia"
         }
     }
+    
+    //Computed variable
+    
+    var czyPosiada : Bool
+    {
+        get{ return zdjecie != nil ? true:false}
+    }
 }
+
 
 //Typ wyliczeniowy ogranicza ilość wartości
 
