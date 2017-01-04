@@ -11,22 +11,24 @@ class Zwierz: CustomStringConvertible
     var zdjecie: UIImage?
     var wiek: Int
     var gatunek: Gatunek
+    var waga: Float
     
     //Metoda do inicjalizacji
     
-    init(imie:String, gatunek: Gatunek, zdjecie: UIImage?, wiek: Int)
+    init(imie:String, gatunek: Gatunek, zdjecie: UIImage?, wiek: Int, waga: Float)
     {
         self.imie = imie
         self.gatunek = gatunek
         self.zdjecie = zdjecie
         self.wiek = wiek
+        self.waga = waga
     }
     
     //Metoda description
     
     var description: String
     {
-        let opis = "\(gatunek.rawValue) - \(imie) - \(wiek) - "
+        let opis = "\(gatunek.rawValue) - \(imie) - \(wiek) - \(waga) - "
         if(zdjecie != nil)
         {
             return opis + "Posiada zdjęcie"
@@ -45,14 +47,3 @@ enum Gatunek: String
     case kot = "Kot"
     case pies = "Pies"
 }
-
-//sprawdzam dzialanie programu
-
-let pies = Zwierz(imie: "Bolek", gatunek: .pies, zdjecie: nil, wiek: 10)
-let kot = Zwierz(imie: "Fenek", gatunek: .kot, zdjecie: nil, wiek: 6)
-
-pies.description
-kot.description
-
-print(pies)
-print(kot)
