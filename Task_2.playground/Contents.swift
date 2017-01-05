@@ -46,7 +46,12 @@ class Zwierz: CustomStringConvertible
         get{ return zdjecie != nil ? true:false}
     }
 }
-
+//Extension
+extension Float {
+    mutating func convertToKg() {
+        self = self * 0.45359237
+    }
+}
 
 //Typ wyliczeniowy ogranicza ilość wartości
 
@@ -55,3 +60,6 @@ enum Gatunek: String
     case kot = "Kot"
     case pies = "Pies"
 }
+
+var waga_funty: Float = 200
+var waga_kilogramy: Float = waga_funty.convertToKg()
