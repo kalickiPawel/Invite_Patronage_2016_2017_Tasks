@@ -45,10 +45,15 @@ class Zwierz: CustomStringConvertible
     {
         get{ return zdjecie != nil ? true:false}
     }
-}
+    
+}//koniec klasy
+
 //Extension
-extension Float {
-    func convertToKg() -> Float {
+
+extension Float
+{
+    func convertToKg() -> Float
+    {
         return self * 0.45359237
     }
 }
