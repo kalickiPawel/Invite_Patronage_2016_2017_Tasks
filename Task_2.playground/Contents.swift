@@ -48,8 +48,8 @@ class Zwierz: CustomStringConvertible
 }
 //Extension
 extension Float {
-    mutating func convertToKg() {
-        self = self * 0.45359237
+    func convertToKg() -> Float {
+        return self * 0.45359237
     }
 }
 
@@ -61,5 +61,5 @@ enum Gatunek: String
     case pies = "Pies"
 }
 
-var waga_funty: Float = 200
-var waga_kilogramy: Float = waga_funty.convertToKg()
+let waga_funty: Float = 200
+let waga_kilogramy = waga_funty.convertToKg()
