@@ -43,9 +43,8 @@ class Zwierz: CustomStringConvertible
     
     var czyPosiada : Bool
     {
-        get{ return zdjecie != nil ? true:false}
+        return zdjecie != nil
     }
-    
 }//koniec klasy
 
 //Extension
