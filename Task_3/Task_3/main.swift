@@ -20,8 +20,6 @@ for i in pudelko!{
     let wysokosc: Float = Float(wymiaryPudelka[0])!
     let szerokosc: Float = Float(wymiaryPudelka[1])!
     let dlugosc: Float = Float(wymiaryPudelka[2])!
-        
-    //iloscSznurka(wysokosc: Float(wymiaryPudelka[0])!,szerokosc: Float(wymiaryPudelka[1])!,dlugosc: Float(wymiaryPudelka[2])!)
     
     let poleBezOwijania: Float = 2*wysokosc*szerokosc+2*wysokosc*dlugosc+2*szerokosc*dlugosc
     var namniejszePole: Float
@@ -41,4 +39,10 @@ for i in pudelko!{
     let polePudelka: Float = poleBezOwijania+namniejszePole
     sumaPol += polePudelka
 }
+
+func liczDlugoscSznurka()
+{
+    
+}
+
 print("Suma pól jest rowna: "+String(sumaPol))
