@@ -8,21 +8,25 @@
 
 import Foundation
 
-print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
-var sumaPol: Float = 0
-let wprowadzanyText: String? = readLine(strippingNewline: true)
-let pudelko = wprowadzanyText?.components(separatedBy: " ")
-
-for i in pudelko!{
-    var wymiaryPudelka = i.components(separatedBy: "x")
-        
-    let wysokosc: Float = Float(wymiaryPudelka[0])!
-    let szerokosc: Float = Float(wymiaryPudelka[1])!
-    let dlugosc: Float = Float(wymiaryPudelka[2])!
+func x() -> [String]{
+    print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
+    let wprowadzanyText: String? = readLine(strippingNewline: true)
+    let pudelko = wprowadzanyText?.components(separatedBy: " ")
     
+    for i in pudelko!{
+        var wymiaryPudelka = i.components(separatedBy: "x")
+        
+        let wysokosc: Float = Float(wymiaryPudelka[0])!
+        let szerokosc: Float = Float(wymiaryPudelka[1])!
+        let dlugosc: Float = Float(wymiaryPudelka[2])!
+        liczPolePudla()
+    }
+}
+
+func liczPolePudla() -> [Float] {
     let poleBezOwijania: Float = 2*wysokosc*szerokosc+2*wysokosc*dlugosc+2*szerokosc*dlugosc
     var namniejszePole: Float
-        
+    
     if(wysokosc*szerokosc < wysokosc*dlugosc || wysokosc*szerokosc < szerokosc*dlugosc)
     {
         namniejszePole = wysokosc*szerokosc
@@ -35,9 +39,24 @@ for i in pudelko!{
     {
         namniejszePole = szerokosc*dlugosc
     }
-        
+    
     let polePudelka = poleBezOwijania+namniejszePole
-    sumaPol+=polePudelka
     print("Pole pudelka o wymiarach: "+i+":")
     print(polePudelka)
+    sumaPol(polePudelka)
 }
+
+func sumaPol (polePudelka: Float) -> Float
+{
+    var sumaPol: Float = 0
+    sumaPol+=polePudelka
+}
+func iloscSznurka() -> Float
+{
+    x()
+    
+}
+
+print(sumaPol())
+print("Potrzeba sznurka: ")
+print(iloscSznurka())
