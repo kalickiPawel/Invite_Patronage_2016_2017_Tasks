@@ -36,10 +36,10 @@ print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x s
 let wprowadzanyText: String? = readLine(strippingNewline: true)
 let pudelko = wprowadzanyText?.components(separatedBy: " ")
 
+var namniejszePole: Float
 var sumaPol: Float = 0
 var dlugoscSznurka: Float = 0
 var sumaSznurka: Float = 0
-var namniejszePole: Float
 
 for i in pudelko!{
     var wymiaryPudelka = i.components(separatedBy: "x")
