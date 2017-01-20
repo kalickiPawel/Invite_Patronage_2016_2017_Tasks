@@ -14,8 +14,11 @@ func dzielenieTextu(){
 print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
 
 let wprowadzanyText: String? = readLine(strippingNewline: true)
-var wprowadzanyTextTab = wprowadzanyText?.components(separatedBy: " ")
-var zmienne = wprowadzanyTextTab[i]?.components(separatedBy: "x")
+var wprowadzanyTextTab = wprowadzanyText.components(separatedBy: " ")
+var i: Int = 0
+for i in 0...10{
+    var zmienne = wprowadzanyTextTab[i]?.components(separatedBy: "x")
+}
 let wysokosc: Float = Float(zmienne![0])!
 let szerokosc: Float = Float(zmienne![1])!
 let dlugosc: Float = Float(zmienne![2])!
@@ -36,4 +39,3 @@ else
 }
 let polePudelka = poleBezOwijania+namniejszePole
 print(polePudelka)
-*/
