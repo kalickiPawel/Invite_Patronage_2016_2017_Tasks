@@ -8,44 +8,37 @@
 
 import Foundation
 
-func liczPolePudla() {
-    print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
-    let wprowadzanyText: String? = readLine(strippingNewline: true)
-    let pudelko = wprowadzanyText?.components(separatedBy: " ")
-    var sumaPol: Float
-    for i in pudelko!{
-        var wymiaryPudelka = i.components(separatedBy: "x")
-        
-        let wysokosc: Float = Float(wymiaryPudelka[0])!
-        let szerokosc: Float = Float(wymiaryPudelka[1])!
-        let dlugosc: Float = Float(wymiaryPudelka[2])!
-        
-        //iloscSznurka(wysokosc: Float(wymiaryPudelka[0])!,szerokosc: Float(wymiaryPudelka[1])!,dlugosc: Float(wymiaryPudelka[2])!)
-        
-        let poleBezOwijania: Float = 2*wysokosc*szerokosc+2*wysokosc*dlugosc+2*szerokosc*dlugosc
-        var namniejszePole: Float
+print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
     
-        if(wysokosc*szerokosc < wysokosc*dlugosc || wysokosc*szerokosc < szerokosc*dlugosc)
-        {
-            namniejszePole = wysokosc*szerokosc
-        }
-        else if(wysokosc*dlugosc < wysokosc*szerokosc || wysokosc*dlugosc < szerokosc*dlugosc)
-        {
-            namniejszePole = wysokosc*dlugosc
-        }
-        else
-        {
-            namniejszePole = szerokosc*dlugosc
-        }
-        let polePudelka: Float = poleBezOwijania+namniejszePole
-        sumaPol += polePudelka
+let wprowadzanyText: String? = readLine(strippingNewline: true)
+let pudelko = wprowadzanyText?.components(separatedBy: " ")
+var sumaPol: Float = 0
+
+for i in pudelko!{
+    var wymiaryPudelka = i.components(separatedBy: "x")
+        
+    let wysokosc: Float = Float(wymiaryPudelka[0])!
+    let szerokosc: Float = Float(wymiaryPudelka[1])!
+    let dlugosc: Float = Float(wymiaryPudelka[2])!
+        
+    //iloscSznurka(wysokosc: Float(wymiaryPudelka[0])!,szerokosc: Float(wymiaryPudelka[1])!,dlugosc: Float(wymiaryPudelka[2])!)
+    
+    let poleBezOwijania: Float = 2*wysokosc*szerokosc+2*wysokosc*dlugosc+2*szerokosc*dlugosc
+    var namniejszePole: Float
+    
+    if(wysokosc*szerokosc < wysokosc*dlugosc || wysokosc*szerokosc < szerokosc*dlugosc)
+    {
+        namniejszePole = wysokosc*szerokosc
     }
-    print(sumaPol)
+    else if(wysokosc*dlugosc < wysokosc*szerokosc || wysokosc*dlugosc < szerokosc*dlugosc)
+    {
+        namniejszePole = wysokosc*dlugosc
+    }
+    else
+    {
+        namniejszePole = szerokosc*dlugosc
+    }
+    let polePudelka: Float = poleBezOwijania+namniejszePole
+    sumaPol += polePudelka
 }
-
-func iloscSznurka(wysokosc: Float, szerokosc: Float, dlugosc: Float) -> Float
-{
-    var wezel: Float = wysokosc*szerokosc*dlugosc
-}
-
-print(liczPolePudla())
+print("Suma pól jest rowna: "+String(sumaPol))
