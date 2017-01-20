@@ -10,6 +10,7 @@ import Foundation
 
 func liczDlugoscSznurka(wysokosc: Float, szerokosc: Float, dlugosc: Float) -> Float {
     var najmniejszyObwod: Float = 0
+    
     if(2*wysokosc+2*szerokosc < 2*wysokosc+2*dlugosc || 2*wysokosc+2*szerokosc < 2*szerokosc+2*dlugosc)
     {
         najmniejszyObwod = 2*wysokosc+2*szerokosc
@@ -22,13 +23,15 @@ func liczDlugoscSznurka(wysokosc: Float, szerokosc: Float, dlugosc: Float) -> Fl
     {
         najmniejszyObwod = 2*szerokosc+2*dlugosc
     }
-    let obwiazanie: Float = 10
+    
+    let obwiazanie: Float = najmniejszyObwod
     let wezel: Float = wysokosc*szerokosc*dlugosc
     let sznurek: Float = obwiazanie + wezel
+    
     return sznurek
 }
 
-print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
+print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”: ")
     
 let wprowadzanyText: String? = readLine(strippingNewline: true)
 let pudelko = wprowadzanyText?.components(separatedBy: " ")
