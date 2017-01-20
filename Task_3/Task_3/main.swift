@@ -8,11 +8,22 @@
 
 import Foundation
 
+func liczDlugoscSznurka(wysokosc: Float, szerokosc: Float, dlugosc: Float) -> Float {
+    let obwiazanie: Float = 10
+    let wezel: Float = wysokosc*szerokosc*dlugosc
+    let sznurek: Float = obwiazanie + wezel
+    return sznurek
+}
+
 print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”")
     
 let wprowadzanyText: String? = readLine(strippingNewline: true)
 let pudelko = wprowadzanyText?.components(separatedBy: " ")
+
 var sumaPol: Float = 0
+var dlugoscSznurka: Float = 0
+var sumaSznurka: Float = 0
+var namniejszePole: Float
 
 for i in pudelko!{
     var wymiaryPudelka = i.components(separatedBy: "x")
@@ -22,7 +33,6 @@ for i in pudelko!{
     let dlugosc: Float = Float(wymiaryPudelka[2])!
     
     let poleBezOwijania: Float = 2*wysokosc*szerokosc+2*wysokosc*dlugosc+2*szerokosc*dlugosc
-    var namniejszePole: Float
     
     if(wysokosc*szerokosc < wysokosc*dlugosc || wysokosc*szerokosc < szerokosc*dlugosc)
     {
@@ -36,13 +46,15 @@ for i in pudelko!{
     {
         namniejszePole = szerokosc*dlugosc
     }
-    let polePudelka: Float = poleBezOwijania+namniejszePole
-    sumaPol += polePudelka
-}
-
-func liczDlugoscSznurka()
-{
     
+    let polePudelka: Float = poleBezOwijania+namniejszePole
+    
+    sumaPol += polePudelka
+    
+    dlugoscSznurka = liczDlugoscSznurka(wysokosc: wysokosc, szerokosc: szerokosc, dlugosc: dlugosc)
+    
+    sumaSznurka += dlugoscSznurka
 }
 
-print("Suma pól jest rowna: "+String(sumaPol))
+print("Suma pól jest równa: "+String(sumaPol))
+print("Suma długości sznurka jest równa: "+String(sumaSznurka))
