@@ -9,6 +9,19 @@
 import Foundation
 
 func liczDlugoscSznurka(wysokosc: Float, szerokosc: Float, dlugosc: Float) -> Float {
+    var najmniejszyObwod: Float = 0
+    if(2*wysokosc+2*szerokosc < 2*wysokosc+2*dlugosc || 2*wysokosc+2*szerokosc < 2*szerokosc+2*dlugosc)
+    {
+        najmniejszyObwod = 2*wysokosc+2*szerokosc
+    }
+    else if(2*wysokosc+2*dlugosc < 2*wysokosc+2*szerokosc || 2*wysokosc+2*dlugosc < 2*szerokosc+2*dlugosc)
+    {
+        najmniejszyObwod = 2*wysokosc+2*dlugosc
+    }
+    else
+    {
+        najmniejszyObwod = 2*szerokosc+2*dlugosc
+    }
     let obwiazanie: Float = 10
     let wezel: Float = wysokosc*szerokosc*dlugosc
     let sznurek: Float = obwiazanie + wezel
