@@ -8,69 +8,71 @@
 
 import Foundation
 
-func liczDlugoscSznurka(wysokosc: Float, szerokosc: Float, dlugosc: Float) -> Float {
-    var najmniejszyObwod: Float = 0
+func calcLengthString(x: Float, y: Float, z: Float) -> Float {
     
-    if(2*wysokosc+2*szerokosc < 2*wysokosc+2*dlugosc || 2*wysokosc+2*szerokosc < 2*szerokosc+2*dlugosc)
+    var minCircuit: Float = 0
+    
+    if(2*x+2*y < 2*x+2*z || 2*x+2*y < 2*y+2*z)
     {
-        najmniejszyObwod = 2*wysokosc+2*szerokosc
+        minCircuit = 2*x+2*y
     }
-    else if(2*wysokosc+2*dlugosc < 2*wysokosc+2*szerokosc || 2*wysokosc+2*dlugosc < 2*szerokosc+2*dlugosc)
+    else if(2*x+2*z < 2*x+2*y || 2*x+2*z < 2*y+2*z)
     {
-        najmniejszyObwod = 2*wysokosc+2*dlugosc
+        minCircuit = 2*x+2*z
     }
     else
     {
-        najmniejszyObwod = 2*szerokosc+2*dlugosc
+        minCircuit = 2*y+2*z
     }
     
-    let obwiazanie: Float = najmniejszyObwod
-    let wezel: Float = wysokosc*szerokosc*dlugosc
-    let sznurek: Float = obwiazanie + wezel
+    let tie: Float = minCircuit
+    let knot: Float = x*y*z
+    let cord: Float = tie + knot
     
-    return sznurek
+    return cord
 }
 
 print("Wprowadź długości pudełka. Rozmiary są w formie „wysokość x szerokość x długość”, a poszczególne pudełka są rozdzielone spacjami, np. „2x3x4 1x2x3 2x2x2”: ")
     
-let wprowadzanyText: String? = readLine(strippingNewline: true)
-let pudelko = wprowadzanyText?.components(separatedBy: " ")
+let text: String? = readLine(strippingNewline: true)
+let box = text?.components(separatedBy: " ")
 
-var namniejszePole: Float
-var sumaPol: Float = 0
-var dlugoscSznurka: Float = 0
-var sumaSznurka: Float = 0
+var minArea: Float
+var areasSum: Float = 0
+var lengthString: Float = 0
+var cordsSum: Float = 0
 
-for i in pudelko!{
-    var wymiaryPudelka = i.components(separatedBy: "x")
+for i in box!{
+    
+    var boxDimensions = i.components(separatedBy: "x")
         
-    let wysokosc: Float = Float(wymiaryPudelka[0])!
-    let szerokosc: Float = Float(wymiaryPudelka[1])!
-    let dlugosc: Float = Float(wymiaryPudelka[2])!
+    let x: Float = Float(boxDimensions[0])!
+    let y: Float = Float(boxDimensions[1])!
+    let z: Float = Float(boxDimensions[2])!
     
-    let poleBezOwijania: Float = 2*wysokosc*szerokosc+2*wysokosc*dlugosc+2*szerokosc*dlugosc
+    let withoutWrap: Float = 2*x*y+2*x*z+2*y*z
     
-    if(wysokosc*szerokosc < wysokosc*dlugosc || wysokosc*szerokosc < szerokosc*dlugosc)
+    if(x*y < x*z || x*y < y*z)
     {
-        namniejszePole = wysokosc*szerokosc
+        minArea = x*y
     }
-    else if(wysokosc*dlugosc < wysokosc*szerokosc || wysokosc*dlugosc < szerokosc*dlugosc)
+    else if(x*z < x*y || x*z < y*z)
     {
-        namniejszePole = wysokosc*dlugosc
+        minArea = x*z
     }
     else
     {
-        namniejszePole = szerokosc*dlugosc
+        minArea = y*z
     }
     
-    let polePudelka: Float = poleBezOwijania+namniejszePole
+    let boxArea: Float = withoutWrap+minArea
     
-    sumaPol += polePudelka
+    areasSum += boxArea
     
-    dlugoscSznurka = liczDlugoscSznurka(wysokosc: wysokosc, szerokosc: szerokosc, dlugosc: dlugosc)
+    lengthString = calcLengthString(x: x, y: y, z: z)
     
-    sumaSznurka += dlugoscSznurka
+    cordsSum += lengthString
 }
 
-print("Suma pól jest równa: "+String(sumaPol))
-print("Suma długości sznurka jest równa: "+String(sumaSznurka))
+print("Suma pól jest równa: "+String(areasSum))
+print("Suma długości sznurka jest równa: "+String(cordsSum))
