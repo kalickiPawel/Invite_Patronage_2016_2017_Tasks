@@ -26,14 +26,14 @@ func calcMinArea(x: Float, y: Float, z: Float) -> Float {
     
     var withoutWrap: Float = 0
     
-    for i in 1...walls.count-1
+    for i in 0...walls.count-1
     {
         withoutWrap += 2*walls[i]
     }
     
-    let wynik: Float = withoutWrap+walls.min()!
+    let minArea: Float = withoutWrap+walls.min()!
     
-    return wynik
+    return minArea
 }
 
 struct Dimension {
