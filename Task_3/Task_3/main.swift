@@ -8,19 +8,19 @@
 
 import Foundation
 
-func calcLengthString(x: Float, y: Float, z: Float) -> Float {
+func calcLengthString(dimensions: Dimension) -> Float {
     
-    let minCircuit: Float = [2*x + 2*y, 2*x + 2*z, 2*y + 2*z].min() ?? 0
+    let minCircuit: Float = [2*dimensions.width + 2*dimensions.height, 2*dimensions.width + 2*dimensions.depth, 2*dimensions.height + 2*dimensions.depth].min() ?? 0
 
-    let knot: Float = x*y*z
+    let knot: Float = dimensions.width*dimensions.height*dimensions.depth
     let cord: Float = minCircuit + knot
     
     return cord
 }
 
-func calcMinArea(x: Float, y: Float, z: Float) -> Float {
+func calcMinArea(dimensions: Dimension) -> Float {
     
-    let walls = [x*y,x*z,y*z]
+    let walls = [dimensions.width*dimensions.height,dimensions.width*dimensions.depth,dimensions.height*dimensions.depth]
     
     var withoutWrap: Float = 0
     
@@ -54,8 +54,8 @@ for i in box!{
     
     var dimensions = Dimension(width: Float(boxDimensions[0]) ?? 0, height: Float(boxDimensions[1]) ?? 0, depth: Float(boxDimensions[2]) ?? 0)
     
-    areasSum += calcMinArea(x: dimensions.width, y: dimensions.height, z: dimensions.depth)
-    cordsSum += calcLengthString(x: dimensions.width, y: dimensions.height, z: dimensions.depth)
+    areasSum += calcMinArea(dimensions: dimensions)
+    cordsSum += calcLengthString(dimensions: dimensions)
 }
 
 print("Suma pól jest równa: "+String(areasSum))
