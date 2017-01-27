@@ -73,6 +73,5 @@ for i in box!{
     
     cordsSum += lengthString
 }
-
 print("Suma pól jest równa: "+String(areasSum))
 print("Suma długości sznurka jest równa: "+String(cordsSum))
