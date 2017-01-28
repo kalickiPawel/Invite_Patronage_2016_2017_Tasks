@@ -18,7 +18,7 @@ func calcLengthString(dimensions: Dimension) -> Float {
     return cord
 }
 
-func calcMinArea(dimensions: Dimension) -> Float {
+func calcArea(dimensions: Dimension) -> Float {
     
     let walls = [dimensions.width*dimensions.height,dimensions.width*dimensions.depth,dimensions.height*dimensions.depth]
     
@@ -29,9 +29,9 @@ func calcMinArea(dimensions: Dimension) -> Float {
         withoutWrap += 2*walls[i]
     }
     
-    let minArea: Float = withoutWrap+(walls.min() ?? 0)
+    let area: Float = withoutWrap+(walls.min() ?? 0)
     
-    return minArea
+    return area
 }
 
 struct Dimension {
@@ -54,7 +54,7 @@ for i in box!{
     
     var dimensions = Dimension(width: Float(boxDimensions[0]) ?? 0, height: Float(boxDimensions[1]) ?? 0, depth: Float(boxDimensions[2]) ?? 0)
     
-    areasSum += calcMinArea(dimensions: dimensions)
+    areasSum += calcArea(dimensions: dimensions)
     cordsSum += calcLengthString(dimensions: dimensions)
 }
 
